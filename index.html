@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Ninja Disappearing</title>
+</head>
+<body>
+  <script>
+    $("body").html('<div class="container"></div>')
+    $(".container").css({"padding":"10px","text-align":"center"})
+    for(i=0;i<8;i++){
+      if(i==4){
+        $(".container").append('<br>')
+      }
+      $(".container").append('<img src='+[i]+'.svg>').attr("src",[i]+".svg")
+    }
+    $(".container").append('<button class="restore">Restore</button>')
+    $(".restore").css({"display":"block","height":"40px","background-color":"#048cb5","margin":"40px auto 0"})
+    $("img").css({"width":"150px","margin":"10px","vertical-align":"middle"})
+    $("img").click(function(){
+      $(this).hide("slow")
+    })
+    $(".restore").click(function(){
+      $("img").show("slow")
+    })
+    </script>
+</body>
+</html>
